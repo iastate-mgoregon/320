@@ -1,0 +1,16 @@
+<script>
+var i
+var middle
+middle = 0
+lower = 0
+upper = 100
+while (middle != i) {
+    middle = Math.ceil((lower + upper) / 2)
+    string = "Is your number " + middle + "?"
+    i = prompt(string)
+    if (i == "<") {upper = middle}
+    else if (i == ">") {lower = middle} 
+    else { break; }
+}
+alert("Got it!")
+</script>
