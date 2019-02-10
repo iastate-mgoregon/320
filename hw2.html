@@ -1,0 +1,23 @@
+<script>
+	var userText = prompt("Enter text")
+	var shiftBy = Number(prompt("Enter shift"))
+	var size = userText.length;
+	var encrypt = "";
+	var temp = 0;
+	var i = 0;
+
+	for (i = 0; i < size; i++) {
+		temp = userText.charCodeAt(i);
+		if ((temp >= 65) && (temp <=90)) {
+			temp = (((temp - 65 + shiftBy) % 26) + 65);
+		}
+		else if ((temp >= 97) && (temp <=122)) {
+			temp = (((temp - 97 + shiftBy) % 26) + 97);
+	}	
+	else {
+		temp = "?";
+	}
+	encrypt += String.fromCharCode(temp);
+	}
+	alert(encrypt)
+</script>s
