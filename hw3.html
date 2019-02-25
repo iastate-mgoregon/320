@@ -1,0 +1,47 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  y = x
+  words = y.split(' ')
+  vowels = 'aeiou'.split('')
+  consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
+  text = ''
+  i = 0
+  while (i < words.length) {
+   if (words[i].toLowerCase() === 'an') {
+    for (j = 0; j < vowels.length; j++) {
+        if (words[i+1].indexOf(vowels[j]) === 0) {
+            text = x
+        }
+    }
+    for (k = 0; k < consonants.length; k++) {
+        if (words[i+1].indexOf(consonants[k]) === 0) {
+            words[i] = 'a'
+            text = words.join(' ')
+        }
+    }
+    }
+    else if (words[i].toLowerCase() === 'a') {
+        for (j = 0; j < vowels.length; j++) {
+            if (words[i+1].indexOf(vowels[j]) === 0) {
+                words[i] = 'an'
+                text = words.join(' ')
+            }
+        }
+        for (k = 0; k < consonants.length; k++) {
+            if (words[i+1].indexOf(consonants[k]) === 0) {
+                text = x
+            }
+      }
+    }
+    i++;
+  }
+document.getElementById("output").value = text
+}
+
+</script>
