@@ -1,0 +1,84 @@
+<script>
+var exercises = 
+    {under: ["Are you wearing anything ___ your sweater?",
+            "He is feeling ___ the weather.",
+                "Who lives in a pineapple ___ the sea?",
+                "Perjury is when a person lies ___ oath.",
+                "The police placed the suspect ___ surveillance."],
+    on: ["Could you put the keys ___ the table?",
+        "This guy is ___ a roll!",
+        "Let's put this statement ___ the record.",
+        "___ a computer, there are a lot of files.",
+        "There's no collar ___ that dog."],
+    about: ["This story is ___ a brave superhero.",
+            "What are you talking ___?",
+            "He has made it clear that his platform is ___ power, not progress.",
+            "You should be thinking ___ your future.",
+            "On Sunday, we have a meeting ___ the Spring schedule."],
+    beside: ["This matter is ___ the point.",
+            "The keys are ___ the desk.",
+            "___ my bed is a nightstand.",
+            "The salt is ___ the pepper.",
+            "Who is that standing ___ Tyler?"],
+    over: ["Somewhere ___ the rainbow, way up high, there's a land that I heard of once in a lullaby.",
+            "___ the bridge and through the woods, to Grandmother's house we go!",
+            "I am so ___ Edward. #TeamJacob",
+            "You'll take my money ___ my dead body!",
+            "He started giving away money, hand ___ fist."]}
+var answers =
+    {under: ["Are you wearing anything under your sweater?",
+            "He is feeling under the weather.",
+                "Who lives in a pineapple under the sea?",
+                "Purgery is when a person lies under oath.",
+                "The police placed the suspect under surveillance."],
+    on: ["Could you put the keys on the table?",
+        "This guy is on a roll!",
+        "Let's put this statement on the record.",
+        "On a computer, there are a lot of files.",
+        "There's no collar on that dog."],
+    about: ["This story is about a brave superhero.",
+            "What are you talking about?",
+            "He has made it clear that his platform is about power, not progress.",
+            "You should be thinking about your future.",
+            "On Sunday, we have a meeting about the Spring schedule."],
+    beside: ["This matter is beside the point.",
+            "The keys are beside the desk.",
+            "Beside my bed is a nightstand.",
+            "The salt is beside the pepper.",
+            "Who is that standing beside Tyler?"],
+    over: ["Somewhere over the rainbow, way up high, there's a land that I heard of once in a lullaby.",
+            "Over the bridge and through the woods, to Grandmother's house we go!",
+            "I am so over Edward. #TeamJacob",
+            "You'll take my money over my dead body!",
+            "He started giving away money, hand over fist."]}
+var preps = ['under','on','about','beside','over']
+var copy_preps = preps
+var counts = {'under':0, 'on':0, 'about':0, 'beside':0, 'over':0}
+while (true) {
+    var i = parseInt(Math.random()*preps.length) 
+    var random_prep = exercises[preps[i]]
+    var j = parseInt(Math.random()*Object.keys(random_prep).length)
+    var random_ex = random_prep[j]
+    var response = prompt(random_ex)
+    if (response.toLowerCase() === preps[i]) {
+        alert('Correct!')
+        counts[preps[i]]+=1
+    } else {
+        alert(answers[preps[i]][j])
+        counts[preps[i]] -= 1
+    }
+    var counts_values = []
+    for (k=0; k<copy_preps.length; k++) {
+        counts_values.push(counts[copy_preps[k]])
+    }
+    var duplicate_scores = []
+    var duplicate_preps = []
+    for (k=0; k<copy_preps.length; k++) {
+        if (counts_values[k] == Math.min(...counts_values)) {
+            duplicate_scores.push(counts_values[k])
+            duplicate_preps.push(copy_preps[k])
+        }
+    }
+    preps = duplicate_preps
+}
+</script>
